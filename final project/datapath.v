@@ -5,8 +5,8 @@ module datapath
 	input ld_x,ld_y,drw,update_temp,update_grid,update_single,
 	input [6:0]xy_position,
 	input [8:0]dataIn,
-	output [7:0]x,
-	output [6:0]y,
+	output reg [7:0]x,
+	output reg [6:0]y,
 	output [2:0]colour
 	);
 	//change this if pixels dont 1 to 1 correspond with cells
@@ -60,8 +60,6 @@ module datapath
 	end
 	
 	//store the x/y values of the current cell
-	reg [3:0]x;
-	reg [3:0]y;
 	always@(posedge clk) begin
         if(!resetn) begin
            x <= 4'b0;
